@@ -1,0 +1,97 @@
+<base href="https://docs.lume.io/guide/scene-graph/example.html" />
+<script src="../../importmap.js"></script>
+<link rel="icon" href="https://fav.farm/🔥" />
+
+<lume-scene perspective="300">
+	<lume-camera-rig></lume-camera-rig>
+	<lume-element3d id="one" position="-100 -100" size="10 10" rotation="0 0 10">
+		<lume-element3d id="two" position="50 50" size="10 10" rotation="0 0 10">
+			<lume-element3d id="three" position="50 50" size="10 10" rotation="0 0 10">
+				<lume-element3d id="four" position="50 50" size="100 100" rotation="0 0 10">
+					Sticky Notes To The Maximum!
+				</lume-element3d>
+			</lume-element3d>
+		</lume-element3d>
+	</lume-element3d>
+</lume-scene>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		width: 100%;
+		background: black;
+		color: white;
+	}
+	lume-element3d {
+		padding: 5px;
+	}
+	#one {
+		background: coral;
+	}
+	#two {
+		background: yellowgreen;
+	}
+	#three {
+		background: deeppink;
+	}
+	#four {
+		background: royalblue;
+	}
+    .invisible-button {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 9999; /* make sure it's on top of other elements */
+        opacity: 0; /* make it invisible */
+        cursor: pointer; /* keep the pointer cursor to indicate it's clickable */
+      }
+      .overlay-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 999; /* make sure it's on top of all other elements */
+        text-align: center;
+        font-size: 48px;
+        color: #fff; /* adjust the color to your liking */
+         /* allow clicks to pass through to underlying elements */
+      }
+      .invisible-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+</style>
+
+<script type="module">
+	import 'lume'
+
+	const rotationFunction = (x, y, z, t) => [
+		10 * Math.sin(t * 0.002),
+		10 * Math.sin(t * 0.002),
+		10 * Math.sin(t * 0.002),
+	]
+
+	// Give all nodes the same rotation. Note that each node rotates "inside" of the parent space.
+	one.rotation = rotationFunction
+	two.rotation = rotationFunction
+	three.rotation = rotationFunction
+	three.rotation = rotationFunction
+</script>
+<div class="invisible-button">
+  
+    <button class="invisible-link" onclick="window.location.href='https://akdavis83.github.io/Converging-Notes/';"> </button>
+  </div>
+  
+  <div class="overlay-text" style="color: white;"> Sticky Notes Click For Converging Notes</div>
